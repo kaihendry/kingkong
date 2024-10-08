@@ -12,9 +12,12 @@ services:
       - name: foo-route
         paths:
           - /foo
+
 plugins:
   - name: rate-limiting
     service: example-service
     config:
       minute: 1
       policy: local
+      limit_by: header
+      header_name: Authorization
