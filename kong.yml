@@ -1,0 +1,14 @@
+_format_version: '3.0'
+services:
+  - name: example-service
+    url: http://httpbin.org/delay/1
+    routes:
+      - name: example-route
+        paths:
+          - /example
+
+plugins:
+  - name: rate-limiting
+    config:
+      minute: 5
+      policy: local

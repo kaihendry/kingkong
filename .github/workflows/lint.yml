@@ -1,0 +1,12 @@
+name: Lint Kong YAML
+on:
+    push:
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Lint kong.yml
+              run: |
+                docker run --rm -e KONG_DATABASE='off' -v "$(pwd)/kong.yml:/kong/kong.yml" kong:latest kong config parse /kong/kong.yml
