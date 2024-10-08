@@ -1,15 +1,13 @@
 name: Pressure Test
-
 on:
   push:
-
 jobs:
   pressure-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - run: go install github.com/rakyll/hey@latest
-    - run: docker compose up --wait --detach --quiet-pull
-    - run: ~/go/bin/hey http://localhost:8000/example
-    - run: docker compose logs
-      if: ${{ always() }}
+      - uses: actions/checkout@v4
+      - run: go install github.com/rakyll/hey@latest
+      - run: docker compose up --wait --detach --quiet-pull
+      - run: ~/go/bin/hey http://localhost:8000/example
+      - run: docker compose logs
+        if: ${{ always() }}

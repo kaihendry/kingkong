@@ -6,9 +6,15 @@ services:
       - name: example-route
         paths:
           - /example
-
+  - name: foo-service
+    url: http://httpbin.org/uuid
+    routes:
+      - name: foo-route
+        paths:
+          - /foo
 plugins:
   - name: rate-limiting
+    service: example-service
     config:
-      minute: 5
+      minute: 1
       policy: local
