@@ -11,6 +11,8 @@ TODO Show logs or metrics by limit_by (The entity that is used when aggregating 
 * X-RateLimit-Limit-Minute: Number of requests allowed per minute.
 * X-RateLimit-Remaining-Minute: Remaining requests for the current minute.
 
+* [Retry-After: 55](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
+
 Additional headers:
 
 * X-Kong-Upstream-Latency: 1178
